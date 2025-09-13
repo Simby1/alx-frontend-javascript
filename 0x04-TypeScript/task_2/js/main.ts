@@ -1,4 +1,3 @@
-// advanced types Part 1
 interface DirectorInterface {
   workFromHome(): string;
   getCoffeeBreak(): string;
@@ -31,7 +30,7 @@ class Teacher implements TeacherInterface {
   }
 
   getCoffeeBreak(): string {
-    return 'Cannot have a break';
+    return 'Cannot get a coffee break';
   }
 
   workTeacherTasks(): string {
@@ -42,40 +41,12 @@ class Teacher implements TeacherInterface {
 function createEmployee(salary: number | string): Director | Teacher {
   if (typeof salary === 'number' && salary < 500) {
     return new Teacher();
-  }
-  return new Director();
-}
-
-//creating employee specific functions 
-function isDirector(employee: Director | Teacher): employee is Director {
-  return (employee as Director).workDirectorTasks !== undefined;
-}
-
-function executeWork(employee: Director | Teacher): void {
-  if (isDirector(employee)) {
-    console.log(employee.workDirectorTasks());
   } else {
-    console.log(employee.workTeacherTasks());
+    return new Director();
   }
 }
 
-// String literal types
-type Subjects = 'Math' | 'History';
-
-function teachClass(todayClass:Subjects): string {
-  if (todayClass === 'Math') {
-    return 'Teaching Math';
-  }
-  if (todayClass === 'History') {
-    return 'Teaching History';
-  }
-}
-
-// testing the functions
+// Test cases
 console.log(createEmployee(200));
 console.log(createEmployee(1000));
 console.log(createEmployee('$500'));
-executeWork(createEmployee(200));
-executeWork(createEmployee(1000));
-console.log(teachClass('Math'));
-console.log(teachClass('History'));

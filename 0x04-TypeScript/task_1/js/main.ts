@@ -14,13 +14,13 @@ interface Director extends Teacher {
 }
 
 //printing teachers
-interface printTeacherFunction {
-  (firstName: string, lastName: string): string;
+
+function printTeacher(firstName: string, lastName: string): string {
+  const firstLetter = firstName.charAt(0);
+  return `${firstLetter}. ${lastName}`;
 }
 
-const printTeacher: printTeacherFunction = (firstName: string, lastName: string): string => {
-  return `${firstName.charAt(0)}. ${lastName}`;
-};
+
 
 //writing a student class
 interface StudentConstructor {

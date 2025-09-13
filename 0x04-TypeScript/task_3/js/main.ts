@@ -11,8 +11,7 @@ const newRowID: RowID = CRUD.insertRow(row);
 console.log(`Insert row ${JSON.stringify(row)}`);
 
 const updatedRow: RowElement = {
-  ...row,
-  age: 23,
+  ...row, age: 23,
 };
 
 CRUD.updateRow(newRowID, updatedRow);

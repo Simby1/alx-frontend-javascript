@@ -23,9 +23,15 @@ const printTeacher: printTeacherFunction = (firstName: string, lastName: string)
 };
 
 //writing a student class
+interface StudentConstructor {
+  new (firstName: string, lastName: string): StudentClass;
+}
+
 interface StudentClassInterface {
   firstName: string;
   lastName: string;
+  workOnHomework(): string;
+  displayName(): string;
 }
 
 class StudentClass {
@@ -36,7 +42,13 @@ class StudentClass {
     this.firstName = firstName;
     this.lastName = lastName;
   }
+
+  workOnHomework(): string {
+    return "Currently working";
+  }
+
+  displayName(): string {
+    return this.firstName;
+  }
 }
 
-const student = new StudentClass("Guillaume", "Salva");
-console.log(student);
